@@ -24,3 +24,13 @@ body {
 //===============================================================================
 // HOME STLYES
 //===============================================================================
+
+.svg-wrap {
+  $size: 400px;
+  width: $size;
+  height: $size;
+  background-color: white;
+  margin: 40px;
+  overflow: hidden;
+  border-radius: $size;
+}
