@@ -1,24 +1,31 @@
 "use strict";
 
 // Plugins
-var            gulp = require('gulp'),
-            connect = require('connect'),
-  connectLivereload = require('connect-livereload'),
-     gulpLivereload = require('gulp-livereload'),
-               sass = require('gulp-sass'),
-             prefix = require('gulp-autoprefixer'),
-             jshint = require('gulp-jshint'),
-           sequence = require('gulp-sequence'),
-             rimraf = require('rimraf'),
-            stylish = require('jshint-stylish');
+var            gulp = require( 'gulp' ),
+            connect = require( 'connect' ),
+  connectLivereload = require( 'connect-livereload' ),
+     gulpLivereload = require( 'gulp-livereload' ),
+               sass = require( 'gulp-sass' ),
+             prefix = require( 'gulp-autoprefixer' ),
+             jshint = require( "gulp-jshint" ),
+            stylish = require( 'jshint-stylish' ),
+            rimraf = require( 'rimraf' ),
+            gulpSequence = require('gulp-sequence'),
+            fileinclude = require('gulp-file-include');
 
 // paths & files
 var path = {
         src: 'src/',
-       html: 'src/**/*.html',
-         js: 'src/js/*.js',
-       sass: 'src/sass/**/*.scss',
+        html: 'src/**/*.html',
+        destHtml: 'dist/**/*.html',
+        js: 'src/js/**/*.js',
+        destJs: 'dist/js/',
+        sass: 'src/sass/**/*.scss',
         css: 'src/css/',
+        destCss: 'dist/css/',
+        img: 'src/img/**/*.*',
+        destImg: 'dist/img/',
+        dest: 'dist/',
 };
 
 // ports
@@ -30,7 +37,7 @@ gulp.task( 'server', function() {
   var server = connect();
 
   server.use( connectLivereload( { port: lrPort } ) );
-  server.use( connect.static( path.src ) );
+  server.use( connect.static( path.dest ) );
   server.listen( localPort );
 
   console.log( "\nlocal server running at http://localhost:" + localPort + "/\n" );
@@ -43,61 +50,61 @@ gulp.task( 'jshint', function() {
     .pipe( jshint.reporter( stylish ) );
 });
 
-// compile sass
-gulp.task( 'sass', function() {
-  gulp.src( path.sass )
-    .pipe(sass().on('error', sass.logError))
-    .pipe( sass({
-      outputStyle: [ 'expanded' ],
-      sourceComments: 'normal'
-    }))
-    .pipe( prefix() )
-    .pipe( gulp.dest( path.css ) );
-});
 
-gulp.task('sass:build', function() {
-  gulp.src( path.sass )
-  .pipe( sass({
-    outputStyle:'compressed'
-  }))
-  .pipe( prefix() )
-  .pipe( gulp.dest( path.css ) );
-});
 
 // watch file
 gulp.task( 'watch', function(done) {
   var lrServer = gulpLivereload();
 
-  gulp.watch( [ path.html, path.js, path.css + '/**/*.css' ] )
+  gulp.watch( [path.destHtml, path.destJs, path.distCss + '/**/*.css' ] )
     .on( 'change', function( file ) {
       lrServer.changed( file.path );
     });
 
   gulp.watch( path.js, ['jshint'] );
-
+  gulp.watch( path.js, ['js'] );
+  gulp.watch( path.html, ['html'] );
   gulp.watch( path.sass, ['sass'] );
 });
 
-// default task
-gulp.task( 'default', [ 'server', 'watch' ] );
-
-gulp.task('copy:build', function() {
-  gulp.src([
-    './src/css/**/*.css',
-    './src/**/*.html',
-    './src/js/**/*.js',
-    './src/fonts/**/*.*',
-    './src/doc/**/*.*',
-    './src/img/**/*.*',
-    './src/favicon.ico'
-  ], { base: './src' })
-  .pipe(gulp.dest('dist'));
+gulp.task('img', function(){
+  gulp.src([path.img])
+  .pipe(gulp.dest(path.destImg));
 });
 
-gulp.task('clean', function(cb) {
-  rimraf('./dist', cb);
-})
+gulp.task('html', function(){
+  return gulp.src([path.html])
+    .pipe(fileinclude({
+      prefix: '@@',
+      basepath: '@file'
+    }))
+    .pipe(gulp.dest(path.dest));
+});
 
-gulp.task('build', function(cb) {
-  sequence('clean', 'sass:build', 'copy:build')(cb);
+
+gulp.task('js', function() {
+  gulp.src([path.js])
+  .pipe(gulp.dest(path.destJs));
+});
+
+
+gulp.task('clean', function(cb){
+  rimraf('./dist', cb);
+});
+
+// compile sass
+gulp.task( 'sass', function() {
+  gulp.src( path.sass )
+    .pipe( sass({
+      outputStyle: [ 'expanded' ],
+      sourceComments: 'normal',
+      errLogToConsole: true
+    }))
+    .pipe( prefix() )
+    .pipe( gulp.dest( path.destCss ) );
+});
+
+// default task
+gulp.task( 'default', function(cb){
+  gulpSequence(['clean'], ['img'],  ['js', 'sass'], ['html'], ['server', 'watch'] )(cb);
 });
