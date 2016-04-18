@@ -54,8 +54,15 @@ body {
   width: 50%;
   margin: 0 auto;
   display: block;
-    max-width: 180px;
+  max-width: 180px;
+  position: absolute;
+  top: 10px;
+  left: 20px;
 
+  @media screen and (max-width: 650px) {
+    max-width: 90px;
+    top: 22px;
+  }
 }
 
 header {
@@ -74,6 +81,7 @@ header {
 
 .about-panel {
   margin: 0 1rem;
+  padding-top: 100px;
 }
 
 .gallery-panel {
@@ -84,6 +92,9 @@ header {
 .gallery-images {
   padding: 0 1rem;
   display: block;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
 
   img {
   display: block;
@@ -123,6 +134,10 @@ header {
   }
 }
 
-
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
 
 
