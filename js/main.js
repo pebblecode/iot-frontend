@@ -17,7 +17,7 @@ var messageElem;
 var noteElem;
 
 
-Snap.load("./../img/washing-machine.svg", function (washerSvg) {
+Snap.load("./img/washing-machine.svg", function (washerSvg) {
     washerElem = washerSvg.select("#washer");
     s.append(washerElem);
     //set start point
@@ -25,7 +25,7 @@ Snap.load("./../img/washing-machine.svg", function (washerSvg) {
     washerElem.click( startAllWashes ); //start washer
 });
 
-Snap.load("img/notification.svg", function (noteSvg) {
+Snap.load("../img/notification.svg", function (noteSvg) {
     noteElem = noteSvg.select("#note");
     s.append(noteElem);
     //set start point
@@ -50,7 +50,7 @@ Snap.load("img/notification.svg", function (noteSvg) {
     // noteElem.animate('t145,85s.3,.3', )
 });
 
-Snap.load("./img/phone.svg", function (phoneSvg) {
+Snap.load("../img/phone.svg", function (phoneSvg) {
     phoneElem = phoneSvg.select("#phone");
     s.append(phoneElem);
     //set start point
