@@ -63,7 +63,7 @@ Snap.load("../img/message.svg", function (messageSvg) {
 });
 
 var startWash = function() {
-    washerElem.unclick( startAllWashes );
+    // washerElem.unclick( startAllWashes );
 
     var myFrames = [
       { animation: { transform: 't7,23s.50,.5r3,100,400' }, dur: 50, easing: mina.easeinout },
@@ -116,7 +116,7 @@ function finish() {
 }
 
 function hideNote() {
-  noteElem.animate({ opacity: 0, transform: 't145,65s.5,.5' }, 500);
+  noteElem.stop().animate({ opacity: 0, transform: 't145,65s.5,.5' }, 500);
 }
 
 function blurSvg (theObject) {
@@ -170,7 +170,7 @@ function startAllWashes () {
   hideNote();
   setTimeout( function() {
     startWash();
-    startWashLoop();
+    // startWashLoop();
   }, 1000);
 }
 
