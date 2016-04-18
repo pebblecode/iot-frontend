@@ -110,7 +110,7 @@ function finish() {
 
       setTimeout( function() {
           hidePhone();
-      }, 3000);
+      }, 3500);
 
   }, 2100);
 }
@@ -163,10 +163,11 @@ function nextFrame ( el, frameArray,  whichFrame, callback ) {
 function startWashLoop() {
   setInterval(function () {
     startWash();
-  }, 11000);
+  }, 11500);
 }
 
 function startAllWashes () {
+  noteElem.stop()
   hideNote();
   setTimeout( function() {
     startWash();
