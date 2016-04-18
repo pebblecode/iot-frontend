@@ -25,7 +25,7 @@ Snap.load("./img/washing-machine.svg", function (washerSvg) {
     washerElem.click( startAllWashes ); //start washer
 });
 
-Snap.load("../img/notification.svg", function (noteSvg) {
+Snap.load("./img/notification.svg", function (noteSvg) {
     noteElem = noteSvg.select("#note");
     s.append(noteElem);
     //set start point
@@ -57,7 +57,7 @@ Snap.load("../img/phone.svg", function (phoneSvg) {
     phoneElem.transform('t160,280s.5,.5');
 });
 
-Snap.load("../img/message.svg", function (messageSvg) {
+Snap.load("./img/message.svg", function (messageSvg) {
     messageElem = messageSvg.select("#message");
     s.append(messageElem);
     //set start point
