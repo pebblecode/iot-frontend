@@ -33,5 +33,96 @@ body {
   margin: 40px;
   overflow: hidden;
   border-radius: $size;
+  display: block;
+  margin: 40px auto;
+  cursor: pointer;
 }
+
+
+@import "_variables.scss";
+
+html,
+body {
+  background-color: $primary-blue;
+}
+
+.logo {
+  margin: 1.5rem 0;
+}
+
+.logo-size {
+  width: 50%;
+  margin: 0 auto;
+  display: block;
+    max-width: 180px;
+
+}
+
+header {
+  margin-bottom: 5rem;
+}
+
+.washing-machine {
+  display: block;
+  margin: 3rem 0 6rem 0;
+}
+
+.washing-machine img {
+  display: block;
+  margin: 0 auto;
+}
+
+.about-panel {
+  margin: 0 1rem;
+}
+
+.gallery-panel {
+  background-color: $dark-blue;
+  padding: 6rem 0;
+}
+
+.gallery-images {
+  padding: 0 1rem;
+  display: block;
+
+  img {
+  display: block;
+  width: 100%;
+  }
+}
+
+.contact-panel {
+  margin: 6rem 1rem;
+}
+
+
+@media only screen and (min-width: 660px) {
+
+  .gallery-images {
+    padding: 0 3rem;
+  }
+
+  .about-panel {
+    margin: 0 3rem;
+  }
+
+  .contact-panel {
+    margin: 6rem 3rem;
+  }
+
+}
+
+@media only screen and (min-width: 960px) {
+
+  .gallery-images {
+    padding: 0 6rem;
+ }
+
+  .gallery-images img {
+    max-width: 800px;
+  }
+}
+
+
+
 
