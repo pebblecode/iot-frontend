@@ -50,7 +50,7 @@ Snap.load("./img/notification.svg", function (noteSvg) {
     // noteElem.animate('t145,85s.3,.3', )
 });
 
-Snap.load("../img/phone.svg", function (phoneSvg) {
+Snap.load("./img/phone.svg", function (phoneSvg) {
     phoneElem = phoneSvg.select("#phone");
     s.append(phoneElem);
     //set start point
