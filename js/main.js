@@ -17,7 +17,7 @@ var messageElem;
 var noteElem;
 
 
-Snap.load("../img/washing-machine.svg", function (washerSvg) {
+Snap.load("./../img/washing-machine.svg", function (washerSvg) {
     washerElem = washerSvg.select("#washer");
     s.append(washerElem);
     //set start point
