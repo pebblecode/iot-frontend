@@ -275,32 +275,37 @@ html, body {
 
 /* line 22, /Users/itomblack/Repos/iot-frontend/src/sass/_fonts.scss */
 .nav {
-  text-align: center; }
+  text-align: right;
+  padding-right: 16px; }
 
-/* line 26, /Users/itomblack/Repos/iot-frontend/src/sass/_fonts.scss */
+/* line 27, /Users/itomblack/Repos/iot-frontend/src/sass/_fonts.scss */
 .nav a {
   font-size: 1.25rem;
   text-decoration: none;
   margin-right: 1rem;
   cursor: pointer;
   color: white; }
-  /* line 33, /Users/itomblack/Repos/iot-frontend/src/sass/_fonts.scss */
+  /* line 34, /Users/itomblack/Repos/iot-frontend/src/sass/_fonts.scss */
   .nav a:hover {
     color: #00ffff; }
+  @media screen and (max-width: 650px) {
+    .nav a {
+      font-size: 12px;
+      margin-right: 0.5rem; } }
 
-/* line 39, /Users/itomblack/Repos/iot-frontend/src/sass/_fonts.scss */
+/* line 45, /Users/itomblack/Repos/iot-frontend/src/sass/_fonts.scss */
 .no-margin {
   margin-right: 0; }
 
-/* line 44, /Users/itomblack/Repos/iot-frontend/src/sass/_fonts.scss */
+/* line 50, /Users/itomblack/Repos/iot-frontend/src/sass/_fonts.scss */
 .gallery-images p {
   font-size: 1rem;
   margin: 1rem 0 2rem 0; }
-  /* line 48, /Users/itomblack/Repos/iot-frontend/src/sass/_fonts.scss */
+  /* line 54, /Users/itomblack/Repos/iot-frontend/src/sass/_fonts.scss */
   .gallery-images p p:last-child {
     margin-bottom: 0; }
 
-/* line 53, /Users/itomblack/Repos/iot-frontend/src/sass/_fonts.scss */
+/* line 59, /Users/itomblack/Repos/iot-frontend/src/sass/_fonts.scss */
 .contact-copy p {
   font-size: 1.563rem;
   text-align: center; }
@@ -346,59 +351,76 @@ html, body {
   width: 50%;
   margin: 0 auto;
   display: block;
-  max-width: 180px; }
+  max-width: 180px;
+  position: absolute;
+  top: 10px;
+  left: 20px; }
+  @media screen and (max-width: 650px) {
+    .logo-size {
+      max-width: 90px;
+      top: 22px; } }
 
-/* line 61, /Users/itomblack/Repos/iot-frontend/src/sass/_home.scss */
+/* line 68, /Users/itomblack/Repos/iot-frontend/src/sass/_home.scss */
 header {
   margin-bottom: 5rem; }
 
-/* line 65, /Users/itomblack/Repos/iot-frontend/src/sass/_home.scss */
+/* line 72, /Users/itomblack/Repos/iot-frontend/src/sass/_home.scss */
 .washing-machine {
   display: block;
   margin: 3rem 0 6rem 0; }
 
-/* line 70, /Users/itomblack/Repos/iot-frontend/src/sass/_home.scss */
+/* line 77, /Users/itomblack/Repos/iot-frontend/src/sass/_home.scss */
 .washing-machine img {
   display: block;
   margin: 0 auto; }
 
-/* line 75, /Users/itomblack/Repos/iot-frontend/src/sass/_home.scss */
+/* line 82, /Users/itomblack/Repos/iot-frontend/src/sass/_home.scss */
 .about-panel {
-  margin: 0 1rem; }
+  margin: 0 1rem;
+  padding-top: 100px; }
 
-/* line 79, /Users/itomblack/Repos/iot-frontend/src/sass/_home.scss */
+/* line 87, /Users/itomblack/Repos/iot-frontend/src/sass/_home.scss */
 .gallery-panel {
   background-color: #000049;
   padding: 6rem 0; }
 
-/* line 84, /Users/itomblack/Repos/iot-frontend/src/sass/_home.scss */
+/* line 92, /Users/itomblack/Repos/iot-frontend/src/sass/_home.scss */
 .gallery-images {
   padding: 0 1rem;
-  display: block; }
-  /* line 88, /Users/itomblack/Repos/iot-frontend/src/sass/_home.scss */
+  display: block;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto; }
+  /* line 99, /Users/itomblack/Repos/iot-frontend/src/sass/_home.scss */
   .gallery-images img {
     display: block;
     width: 100%; }
 
-/* line 94, /Users/itomblack/Repos/iot-frontend/src/sass/_home.scss */
+/* line 105, /Users/itomblack/Repos/iot-frontend/src/sass/_home.scss */
 .contact-panel {
   margin: 6rem 1rem; }
 
 @media only screen and (min-width: 660px) {
-  /* line 101, /Users/itomblack/Repos/iot-frontend/src/sass/_home.scss */
+  /* line 112, /Users/itomblack/Repos/iot-frontend/src/sass/_home.scss */
   .gallery-images {
     padding: 0 3rem; }
-  /* line 105, /Users/itomblack/Repos/iot-frontend/src/sass/_home.scss */
+  /* line 116, /Users/itomblack/Repos/iot-frontend/src/sass/_home.scss */
   .about-panel {
     margin: 0 3rem; }
-  /* line 109, /Users/itomblack/Repos/iot-frontend/src/sass/_home.scss */
+  /* line 120, /Users/itomblack/Repos/iot-frontend/src/sass/_home.scss */
   .contact-panel {
     margin: 6rem 3rem; } }
 
 @media only screen and (min-width: 960px) {
-  /* line 117, /Users/itomblack/Repos/iot-frontend/src/sass/_home.scss */
+  /* line 128, /Users/itomblack/Repos/iot-frontend/src/sass/_home.scss */
   .gallery-images {
     padding: 0 6rem; }
-  /* line 121, /Users/itomblack/Repos/iot-frontend/src/sass/_home.scss */
+  /* line 132, /Users/itomblack/Repos/iot-frontend/src/sass/_home.scss */
   .gallery-images img {
     max-width: 800px; } }
+
+/* line 137, /Users/itomblack/Repos/iot-frontend/src/sass/_home.scss */
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%; }
