@@ -1,5 +1,8 @@
 (function () { 'use strict';
 
+
+//**************** SNAP SVG *******************//
+
   var s = Snap("#svg-1");
   var g = s.group();
 
@@ -160,11 +163,11 @@ function nextFrame ( el, frameArray,  whichFrame, callback ) {
   );
 }
 
-function startWashLoop() {
-  setInterval(function () {
-    startWash();
-  }, 11000);
-}
+// function startWashLoop() {
+//   setInterval(function () {
+//     startWash();
+//   }, 11000);
+// }
 
 function startAllWashes () {
   hideNote();
@@ -174,8 +177,37 @@ function startAllWashes () {
   }, 1000);
 }
 
+//**************** END SNAP SVG *******************//
 
 
+//**************** HOME *******************//
+
+$('.nav-link').click( function(e) {
+  e.preventDefault();
+  var sectionId = this.href.split(/[#]+/).pop();
+
+  $('html, body').animate({
+        scrollTop: $("#" + sectionId ).offset().top
+    }, 1000);
+});
+
+
+function scrollTo(element, to, duration) {
+    var start = element.scrollTop,
+        change = to - start,
+        currentTime = 0,
+        increment = 20;
+        
+    var animateScroll = function(){        
+        currentTime += increment;
+        var val = Math.easeInOutQuad(currentTime, start, change, duration);
+        element.scrollTop = val;
+        if(currentTime < duration) {
+            setTimeout(animateScroll, increment);
+        }
+    };
+    animateScroll();
+}
 
 
 
