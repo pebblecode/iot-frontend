@@ -16,11 +16,13 @@
           <img class="logo-size" src="img/whistle-logo.svg" />
         </div>
 
-        <div class="nav">
-          <a>About</a>
-          <a>Gallery</a>
-          <a class="no-margin">Contact</a>
-        </div>
+        <div class="nav-wrapper">
+	        <div class="nav">
+	          <a>About</a>
+	          <a>Gallery</a>
+	          <a class="no-margin">Contact</a>
+	        </div>
+	    </div>
       </header>
 
       <section class="about-panel">
@@ -51,8 +53,12 @@
           <p>Regster your email if you’d like to know more about Whistle and find out when to pre-order.</p>
         </div>
         <div class="email-signup">
-          <p>Your email address</p>
-          <p>Submit</p>
+        	<form class="email-signup" action="https://formspree.io/info@whistle.com"
+			      method="POST">
+			    <input type="text" name="name" placeholder="Your Name">
+			    <input type="email" name="_replyto" placeholder="Your Email">
+			    <input class="send-button" type="submit" value="Send">
+			</form>
         </div>
       </section>
 
