@@ -17,9 +17,9 @@
    
    <div class="wrapper"> 
      
-     <header>
+     <header class="header">
         <div class="logo">
-          <img class="logo-size" src="img/whistle-logo.svg" />
+          <img class="logo-size" src="./img/whistle-logo.svg" />
         </div>
 
         <div class="nav">
@@ -43,22 +43,26 @@
 
       <section id="section-gallery" class="gallery-panel">
         <div class="gallery-images">
-          <img src="img/whistle-product_800.png" />
+          <img src="./img/whistle-product_800.png" />
           <p>Whistle attaches to the font of your washing machine.</p>
-          <img src="img/whistle-product_800.png" />
+          <img src="./img/whistle-product_800.png" />
           <p>This is the second caption.</p>
-          <img src="img/whistle-product_800.png" />
+          <img src="./img/whistle-product_800.png" />
           <p class="no-bottom-margin">This is the third caption.</p>
         </div>
       </section>
 
       <section id="section-contact" class="contact-panel">
         <div class="contact-copy">
-          <p>Regster your email if you’d like to know more about Whistle and find out when to pre-order.</p>
+            <p>Regster your email if you’d like to know more about Whistle and find out when to pre-order.</p>
         </div>
         <div class="email-signup">
-          <p>Your email address</p>
-          <p>Submit</p>
+            <form class="email-signup" action="https://formspree.io/info@whistle.com"
+              method="POST">
+              <input type="text" name="name" placeholder="Your Name">
+              <input type="email" name="_replyto" placeholder="Your Email">
+              <input class="send-button" type="submit" value="Send">
+          </form>
         </div>
       </section>
 
