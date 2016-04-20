@@ -37,7 +37,15 @@ body {
   display: block;
   margin: 40px auto;
   cursor: pointer;
+
+  @media screen and (max-width: 450px) {
+    $size: 200px;
+    width: $size;
+    height: $size;
+  }
+  
 }
+
 
 html,
 body {

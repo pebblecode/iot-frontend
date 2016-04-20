@@ -16,12 +16,29 @@ var phoneElem;
 var messageElem;
 var noteElem;
 
+//get width of svg
+var wrapSize = s.attr("width").replace("px","");
+var maxWrapSize = 400;
+console.log(wrapSize);
+//if 400 then multiplier = 1
+// var posMultiplier = 1;
+// if (wrapSize == 400) { posMultiplier = 1 };
+// if (wrapSize == 200) { posMultiplier = 0.5 };
+// console.log(posMultiplier);
+//if 200 then then multiplier = 0.5
+
+//get width of svg
+
+
 
 Snap.load("./img/washing-machine.svg", function (washerSvg) {
     washerElem = washerSvg.select("#washer");
     s.append(washerElem);
     //set start point
     washerElem.transform('t7,23s.5,.5');
+    washerElem.transform('t-50,-70s.25,.25');
+    // if (wrapSize == 200) { };
+    washerElem.transform( 't' + 7 + ',' + 23 + 's' + .5*posMultiplier + ',' + .5*posMultiplier );
     washerElem.click( startAllWashes ); //start washer
 });
 
